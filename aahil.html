@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Subject Profile: Mohammad Aahil Ayan Ahmad | The Daily Forensic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:wght@300;400;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color: #1a1a1a; }
+
+/* MASTHEAD */
+.masthead { background: #0d0d0d; color: #f5f0e8; text-align: center; padding: 1.2rem 2rem 1rem; border-bottom: 5px double #c8a84b; }
+.masthead-top { display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; color: #777; margin-bottom: 0.6rem; text-transform: uppercase; }
+.paper-name { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 7vw, 4.8rem); font-weight: 900; letter-spacing: -0.01em; line-height: 1; color: #f5f0e8; }
+.paper-tagline { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.38em; color: #c8a84b; text-transform: uppercase; margin-top: 0.4rem; }
+
+/* TICKER */
+.ticker-wrap { background: #c8a84b; overflow: hidden; white-space: nowrap; padding: 0.38rem 0; }
+.ticker-inner { display: inline-block; animation: ticker 28s linear infinite; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 700; color: #0d0d0d; }
+@keyframes ticker { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
+
+.container { max-width: 920px; margin: 0 auto; padding: 2.8rem 2rem; }
+
+/* ARTICLE META */
+.article-category { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: #c8a84b; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid #c8a84b; display: inline-block; }
+.headline { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.08; margin-bottom: 1rem; color: #0d0d0d; }
+.subheadline { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: #444; line-height: 1.65; margin-bottom: 1.5rem; padding-bottom: 1.4rem; border-bottom: 2px solid #0d0d0d; }
+.byline { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.15em; color: #666; text-transform: uppercase; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.byline span { color: #0d0d0d; font-weight: 700; }
+
+/* IDENTITY CARD (replaces photo spread) */
+.id-card-wrap { border: 2px solid #0d0d0d; margin-bottom: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; }
+.id-half { padding: 1.4rem 1.6rem; }
+.id-half:first-child { border-right: 1px solid #0d0d0d; background: #0d0d0d; color: #f5f0e8; }
+.id-half:last-child { background: #f5f0e8; }
+.id-label { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: #c8a84b; margin-bottom: 0.6rem; }
+.id-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; line-height: 1.15; margin-bottom: 0.9rem; }
+.id-field { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-transform: uppercase; }
+.id-field em { color: #c8a84b; font-style: normal; margin-right: 0.4rem; }
+.id-field span { color: #aaa; }
+.id-half:last-child .id-field span { color: #555; }
+.id-half:last-child .id-field em { color: #0d0d0d; }
+.classification-stamp { display: inline-block; margin-top: 1.2rem; border: 2px solid #c8a84b; padding: 0.3rem 0.8rem; font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: #c8a84b; transform: rotate(-2deg); }
+.id-half:last-child .classification-stamp { border-color: #0d0d0d; color: #0d0d0d; transform: rotate(1.5deg); }
+
+/* ARTICLE BODY */
+.article-body { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+.main-text p { font-size: 1rem; line-height: 1.88; margin-bottom: 1.4rem; color: #1e1e1e; text-align: justify; }
+.main-text p:first-child::first-letter { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900; float: left; line-height: 0.75; margin-right: 0.12em; margin-top: 0.1em; color: #0d0d0d; }
+.pull-quote { border-top: 3px solid #0d0d0d; border-bottom: 3px solid #0d0d0d; padding: 1.2rem 0; margin: 2rem 0; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; font-weight: 700; line-height: 1.4; color: #0d0d0d; }
+.section-head { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: #0d0d0d; margin: 2.2rem 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1px solid #ccc; }
+
+/* CHART BOXES */
+.chart-box { background: #fff; border: 1px solid #ddd; padding: 1.4rem; margin: 2.2rem 0; }
+.chart-box-title { font-family: 'Oswald', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: #0d0d0d; margin-bottom: 0.25rem; }
+.chart-box-sub { font-size: 0.7rem; font-style: italic; color: #999; margin-bottom: 1rem; }
+.chart-box canvas { width: 100% !important; max-height: 280px; }
+
+/* DARK CALLOUT BOX */
+.callout-box { background: #0d0d0d; color: #f5f0e8; padding: 1.5rem; margin: 2rem 0; border-left: 6px solid #c8a84b; }
+.callout-box-title { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: #c8a84b; margin-bottom: 0.8rem; }
+.callout-box p { font-size: 0.88rem; line-height: 1.75; color: #bbb; }
+.callout-box strong { color: #f5f0e8; }
+
+/* SIDEBAR */
+.sidebar { border-left: 2px solid #0d0d0d; padding-left: 1.5rem; }
+.sidebar-box { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #ddd; }
+.sidebar-box:last-child { border-bottom: none; }
+.sidebar-title { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: #c8a84b; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #c8a84b; }
+.score-card { background: #0d0d0d; color: #f5f0e8; padding: 1.4rem; text-align: center; margin-bottom: 1.2rem; }
+.score-number { font-family: 'Playfair Display', serif; font-size: 3.6rem; font-weight: 900; color: #c8a84b; line-height: 1; }
+.score-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; color: #888; text-transform: uppercase; margin-top: 0.3rem; }
+.trait-row { margin-bottom: 0.9rem; }
+.trait-name { font-family: 'Oswald', sans-serif; font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 0.25rem; display: flex; justify-content: space-between; }
+.trait-name strong { color: #0d0d0d; }
+.bar-track { height: 4px; background: #e0d8c8; }
+.bar-fill { height: 100%; background: #0d0d0d; }
+.fact-item { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.75rem; }
+.fact-bullet { color: #c8a84b; font-size: 0.75rem; margin-top: 0.2rem; flex-shrink: 0; font-family:'Oswald',sans-serif; }
+.fact-text { font-size: 0.78rem; line-height: 1.55; color: #333; }
+
+/* WITNESS BOX (replaces religion badges) */
+.witness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0; }
+.witness-card { border: 2px solid #0d0d0d; padding: 0.7rem 0.5rem; text-align: center; }
+.witness-icon { font-size: 1.5rem; display: block; margin-bottom: 0.25rem; }
+.witness-label { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: #777; }
+.witness-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 900; color: #0d0d0d; }
+
+/* FOOTER */
+.footer-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #0d0d0d; }
+.tag { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid #0d0d0d; color: #0d0d0d; }
+.paper-footer { background: #0d0d0d; color: #555; text-align: center; padding: 1rem 2rem; font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; margin-top: 2rem; border-top: 4px solid #c8a84b; }
+.disclaimer { background: #fff3cd; border-left: 4px solid #c8a84b; padding: 0.8rem 1.2rem; margin-bottom: 2rem; font-size: 0.76rem; color: #555; font-style: italic; }
+
+/* WANTED RIBBON */
+.wanted-ribbon { background: #c8a84b; color: #0d0d0d; font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase; font-weight: 700; text-align:center; padding: 0.45rem; }
+
+@media (max-width: 680px) {
+  .article-body { grid-template-columns: 1fr; }
+  .id-card-wrap { grid-template-columns: 1fr; }
+  .id-half:first-child { border-right: none; border-bottom: 1px solid #333; }
+  .witness-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <span>Monday, April 13, 2026</span>
+    <span>Intelligence Dossier Edition</span>
+    <span>Vol. XLII · No. 104</span>
+  </div>
+  <div class="paper-name">The Daily Forensic</div>
+  <div class="paper-tagline">Truth In Every Pixel — Science In Every Story</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    ⚡ EXCLUSIVE: Full Dossier Released On Region's Most Documented F1 Superfan &nbsp;·&nbsp; Sources Confirm Subject Has Never Once Legally Operated A Motor Vehicle &nbsp;·&nbsp; Taraksha Panda Remains Unavailable For Comment &nbsp;·&nbsp; LH44 Sticker Count Reaches "Structurally Concerning" Levels &nbsp;·&nbsp; Hotwheels Collection Valued Higher Than Subject's Future Car &nbsp;·&nbsp; Breaking: Bike Has No Brakes, Rider Has No License &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- WANTED RIBBON -->
+<div class="wanted-ribbon">⚠ Classified Subject Profile — Internal Circulation Only ⚠</div>
+
+<div class="container">
+
+  <div class="article-category">Forensic Intelligence — Comprehensive Subject Analysis</div>
+
+  <h1 class="headline">The Dossier on Mohammad Aahil Ayan Ahmad: F1 Fanatic, Underage Road Menace, and Collector of Very Small Cars</h1>
+
+  <p class="subheadline">A fully sourced, peer-reviewed forensic investigation into the hobbies, habits, personality profile, and questionable road presence of Mohammad Aahil Ayan Ahmad — Muslim, French sympathiser, sworn devotee of Lewis Hamilton, bike rider of dubious legal standing, and best friend to one Taraksha Panda (supporting character, limited screentime).</p>
+
+  <div class="byline">
+    By <span>Sr. Investigator M. Clarkson</span> &nbsp;|&nbsp; Field Correspondent &nbsp;|&nbsp; <span>The Daily Forensic</span> &nbsp;|&nbsp; April 13, 2026
+  </div>
+
+  <!-- IDENTITY CARD -->
+  <div class="id-card-wrap">
+    <div class="id-half">
+      <div class="id-label">▶ Subject Classification File</div>
+      <div class="id-name">Mohammad Aahil Ayan Ahmad</div>
+      <div class="id-field"><em>AKA:</em> <span>Aahil, That Guy With The LH44 Pfp</span></div>
+      <div class="id-field"><em>Status:</em> <span>Active — Extremely Online</span></div>
+      <div class="id-field"><em>Religion:</em> <span>Islam (Practising)</span></div>
+      <div class="id-field"><em>Nationality:</em> <span>Not French (Insists Otherwise)</span></div>
+      <div class="id-field"><em>Primary Vehicle:</em> <span>Bicycle, No License</span></div>
+      <div class="id-field"><em>Threat Level:</em> <span>Moderate (On The Road)</span></div>
+      <div class="classification-stamp">Dossier Active</div>
+    </div>
+    <div class="id-half">
+      <div class="id-label">▶ Known Associates & Affiliations</div>
+      <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:1rem; color:#0d0d0d;">Associate File — Secondary Subject</div>
+      <div class="id-field"><em>Name:</em> <span>Taraksha Panda</span></div>
+      <div class="id-field"><em>Role:</em> <span>Best Friend / Side Character</span></div>
+      <div class="id-field"><em>Screen Time:</em> <span>Limited But Memorable</span></div>
+      <div class="id-field"><em>Description:</em> <span>Usually Present, Rarely Explained</span></div>
+      <div class="id-field"><em>Threat Level:</em> <span>Low (Morally Questionable Company)</span></div>
+      <div class="id-field"><em>Note:</em> <span>Gay. Documented. On File.</span></div>
+      <div class="classification-stamp">Secondary Profile</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    ⚠ Editorial Note: The Daily Forensic publishes all subject profiles in the spirit of investigative documentation. All findings herein are based on field observation, data modelling, and the collective certainty of those who know Aahil personally. He has not been consulted, nor would he cooperate. This is expected.
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <div class="main-text">
+
+      <p>In what The Daily Forensic's intelligence division is calling "the most thorough personality dossier compiled on an individual who has never technically done anything illegal except ride that bike," our field team has assembled a complete forensic profile on one Mohammad Aahil Ayan Ahmad. The subject, whose interest portfolio spans Formula 1, miniature die-cast automobiles, Islamically-inflected lifestyle practices, a profound and unexplained affinity for the French, and an ongoing vehicular situation that would concern most traffic authorities, was placed under analytical observation approximately three weeks ago when a senior correspondent noticed him doing a corner at unacceptable speed on a bicycle he does not legally own the right to operate. The resulting investigation took eleven days, four strong cups of tea, and one very uncomfortable conversation with Taraksha Panda, who confirmed everything and then pretended he hadn't.</p>
+
+      <p>The subject's most defining characteristic, and the one our analysts returned to most frequently during internal briefings, is his relationship with Formula 1. This is not a casual hobby. This is not the kind of interest where a person checks scores occasionally or watches a race when nothing else is on. Aahil's engagement with F1 is <strong>forensic in its intensity</strong> — the sort of devotion that fills notification queues, populates conversation topics at inappropriate moments, and has resulted in a profile picture that prominently features the number 44. That number is, of course, the racing number of Sir Lewis Hamilton, seven-time World Drivers' Champion, Mercedes AMG Petronas Formula One Team's most decorated driver, and the man whose career Aahil appears to have appointed himself unofficial documentarian of. When Hamilton wins, sources say the subject is "unbearable in the best way." When Hamilton does not win, the subject is reportedly "also unbearable, but in a different way."</p>
+
+      <div class="pull-quote">"He knows the tyre strategy before the pit wall does. I don't know if that's impressive or a cry for help."<br>— Taraksha Panda, reluctant source</div>
+
+      <div class="section-head">The Hotwheels Situation — A Forensic Inventory</div>
+
+      <p>Independent of his full-scale Formula 1 fixation, the subject maintains what can only be described as a parallel miniature motorsport operation in the form of a Hotwheels collection. For those unfamiliar, Hotwheels are 1:64 scale die-cast toy cars — two inches long, available at most supermarkets, and typically marketed toward children under the age of eight. Aahil is not under the age of eight. This has not deterred him. Our field analysts, who were able to inspect the collection via secondary source photography, estimated the total count at somewhere between "impressive for a child" and "alarming for anyone else." The cars are not kept in casual disorder, either. They are arranged. Categorised. Some are still in their original packaging. This last detail was noted in our file as "either admirable restraint or the first sign of a collecting psychology that warrants further study."</p>
+
+      <p>When a colleague of the subject was asked to explain the Hotwheels situation, they paused for several seconds before responding: "He just really likes small cars." When pressed, they added: "He also really likes big cars. It's specifically cars. It's always been cars." This tracks with the broader subject profile. The F1 passion, the Hotwheels collection, the underage bicycle operation — these are not isolated incidents. They form a coherent narrative of someone whose identity is, at a fundamental level, inseparable from vehicles moving at speed. The bicycle is simply the real-world expression of an automotive identity that has no licensed outlet yet.</p>
+
+      <!-- CHART 1: Interest Distribution -->
+      <div class="chart-box">
+        <div class="chart-box-title">Figure 1: Subject's Documented Interest Allocation</div>
+        <div class="chart-box-sub">Time and cognitive resources distributed across primary hobby categories — field estimate, ±3%</div>
+        <canvas id="interestChart"></canvas>
+      </div>
+
+      <div class="section-head">The French Allegiance — Origins Unknown</div>
+
+      <p>Among the more puzzling entries in the subject's dossier is a documented affinity for France and French culture. The origins of this allegiance remain unclear. The subject has, to our knowledge, never visited France. He does not speak French, though our analysts noted he has typed "oui" ironically enough times for it to be considered a personality trait. He has no known French relatives. He has no documented professional connection to anything French. And yet the affinity persists — manifesting in opinions on French cuisine, references to Paris with the familiarity of a regular visitor, and at least one instance of defending a French F1 driver in circumstances where the defence was, according to witnesses, "completely unsolicited and statistically indefensible."</p>
+
+      <p>One theory proposed internally was that the French connection stems from F1 — the sport has deep roots in France, several teams are based there, and the Monaco Grand Prix remains one of the crown jewels of the calendar. This would explain an affinity born of association rather than geography. Another theory, proposed by Taraksha Panda during a brief moment of candour, was: "I don't know, he just thinks France is cool." Our forensic psychologists rated this second theory as "probably correct, deeply unsatisfying." The file remains open.</p>
+
+      <!-- CHART 2: F1 Knowledge vs General Knowledge -->
+      <div class="chart-box">
+        <div class="chart-box-title">Figure 2: Comparative Knowledge Index — F1 Versus Everything Else</div>
+        <div class="chart-box-sub">Standardised knowledge assessment across twelve domains; F1 = benchmark category</div>
+        <canvas id="knowledgeChart"></canvas>
+      </div>
+
+      <div class="section-head">The Bicycle Incident — An Ongoing Matter</div>
+
+      <p>It would be irresponsible to publish a comprehensive profile of Mohammad Aahil Ayan Ahmad without addressing, directly and without editorial softening, the matter of the bicycle. The subject rides a bike. This is not, in isolation, notable. What elevates this from ordinary transportation to forensic concern is the combination of factors surrounding it: the subject is underage by the standards of most motorised-vehicle licensing jurisdictions, the bike in question is operated at speeds that observers describe as "inconsistent with the immediate environment," and the subject's general approach to road navigation appears to have been shaped more by Formula 1 viewing habits than by any formal instruction in traffic law. Witnesses describe overtaking manoeuvres, late braking, and at least one incident involving a corner that a reasonable person would have taken at half the speed. The subject completed it successfully, which appears to have reinforced the behaviour rather than discouraged it.</p>
+
+      <p>To be clear: the subject has not, to date, been involved in a collision, injury, or formal legal proceeding related to his cycling activity. This is either a testament to his reflexes, his luck, or an indictment of local traffic enforcement infrastructure. Possibly all three. Taraksha Panda, when asked to characterise the riding style, said only: "He drives like he's got DRS." Our forensic team took this to mean the subject applies F1 strategic logic to a pedal bicycle on public roads. We have logged this under "concerning but consistent with character profile."</p>
+
+      <div class="callout-box">
+        <div class="callout-box-title">⚡ Field Note — The Taraksha Panda Paradox</div>
+        <p>Any honest account of Mohammad Aahil Ayan Ahmad must grapple with his relationship to <strong>Taraksha Panda</strong> — a figure who occupies an unusual position in the subject's social universe. Panda is, by all accounts, a best friend. He is also, by equal accounts, a secondary character in every story. He is present in most documented incidents. He is rarely the cause of them. He witnesses things. He reports things, reluctantly, when interviewed. He is gay, which the dossier records factually and without editorial weight. His primary narrative function appears to be: <strong>being there when it happens, and confirming it later.</strong> He declined to be interviewed for this report. He then texted back three hours later with additional details. This is characteristic of his profile.</p>
+      </div>
+
+      <div class="section-head">Religious Identity — Islam, Observed</div>
+
+      <p>The subject is Muslim. This is documented, unambiguous, and relevant to the subject profile in the sense that it forms part of his identity as he navigates a social environment that does not always make this straightforward. Our analysts noted that Aahil's faith is not performative or conversational — it is simply present, in the way that foundational things tend to be. It does not conflict with his F1 obsession, his French sympathies, his Hotwheels collection, or his extralegal cycling habits. In this sense, he is a perfectly ordinary person who happens to hold a set of beliefs that are his own business, reported here only because a comprehensive dossier that omitted them would be incomplete. The Daily Forensic does not editorialise on faith. We simply document it.</p>
+
+      <!-- CHART 3: Personality Radar -->
+      <div class="chart-box">
+        <div class="chart-box-title">Figure 3: Forensic Personality Matrix — Subject: M.A.Y. Ahmad</div>
+        <div class="chart-box-sub">Seven-axis psychometric assessment derived from field observation and secondary source interviews</div>
+        <canvas id="personalityChart"></canvas>
+      </div>
+
+      <div class="section-head">The Hamilton Devotion — A Quantified Analysis</div>
+
+      <p>If one were to select a single data point from this entire dossier and call it the most analytically significant, that data point would be the subject's relationship to Lewis Hamilton. The LH44 designation — Hamilton's iconic number — appears in Aahil's digital identity across multiple platforms. This is not unusual for an F1 fan. What sets it apart is the durability of the commitment. Hamilton has, at points in recent seasons, been in a car that was not competitive. He has had races where results did not reflect his talent. He has had off-weekends. Throughout all of this, the subject's allegiance has shown zero detectable variation. This is notable. Many casual fans are results-driven — they support a driver when the car is good and go quiet when it isn't. Aahil does not go quiet. He goes louder, and more analytical, and starts explaining tyre deg.</p>
+
+      <p>Our motorsport correspondent, who was brought in for this specific section of the dossier, reviewed the subject's documented statements on Hamilton across a 14-month period and concluded: "This individual understands the sport better than the average pundit. He is also incapable of acknowledging that any driver other than Hamilton has ever made a correct decision." This is a fair assessment. It is also, frankly, the hallmark of a genuine fan — not the performative kind, but the real kind, where your investment in the outcome is disproportionate to any rational calculus and you are fully aware of this and continue anyway.</p>
+
+      <div class="section-head">Conclusion — The Profile In Full</div>
+
+      <p>Mohammad Aahil Ayan Ahmad is, when viewed in totality, a coherent human being whose apparent contradictions resolve cleanly upon closer inspection. He is fat — his words, deployed with the casual confidence of someone who has made peace with it. He is Muslim — practising, grounded, not a subject for debate. He is devoted to Lewis Hamilton and Formula 1 to a degree that functions less as a hobby and more as a secondary identity. He collects Hotwheels with the seriousness of a much older man and the joy of a much younger one. He has feelings about France that are disproportionate to any documented French experience. He rides a bike like he is defending a racing line. And he keeps Taraksha Panda around, which tells you more about his character than any forensic metric.</p>
+
+      <p>What the data ultimately reveals is not a subject who is difficult to understand, but one who is difficult to summarise. He is specific. Specific in his passions, specific in his loyalties, specific in his opinions. The Daily Forensic does not typically editoralise in its intelligence profiles. We make an exception here: this is someone who knows exactly what he likes, does not apologise for it, and would almost certainly read this dossier, identify every source, and send Taraksha Panda an angry message within four minutes of publication. We consider this the highest form of accurate reporting. The file is, for now, complete.</p>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-box">
+        <div class="sidebar-title">📋 Subject Threat Assessment</div>
+        <div class="score-card">
+          <div class="score-number">7.4</div>
+          <div class="score-label">Chaos Index / 10</div>
+        </div>
+        <p style="font-size:0.78rem; line-height:1.6; color:#555;">Elevated due to cycling behaviour and unchecked F1 discourse. Low in all other threat categories.</p>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-title">📊 Interest Intensity Scores</div>
+        <div class="trait-row">
+          <div class="trait-name"><span>F1 / Lewis Hamilton</span> <strong>99%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:99%;"></div></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>Hotwheels Collection</span> <strong>88%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:88%;"></div></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>French Allegiance</span> <strong>74%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:74%;"></div></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>Bike Recklessness</span> <strong>91%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:91%;"></div></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>Islamic Practice</span> <strong>85%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>Taraksha Panda Loyalty</span> <strong>96%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:96%;"></div></div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-title">🔍 Field Observations</div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Has discussed tyre strategy in non-F1 contexts at least twice per documented month.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Hotwheels collection includes at minimum two cars still in original packaging. Analysts are divided on what this means.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Has defended France in a debate where France was not the topic.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Bicycle operations logged at "DRS-equivalent speeds" by associate Taraksha Panda.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">LH44 appears across at least three digital platforms. Consistency assessed as "sincere, not ironic."</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Subject described by secondary source as "a lot, but like, good a lot." Filed under: character assessment.</div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-title">🧩 Associate Profile — T. Panda</div>
+        <div class="witness-grid">
+          <div class="witness-card">
+            <span class="witness-icon">📍</span>
+            <div class="witness-label">Role</div>
+            <div class="witness-val">Sidekick</div>
+          </div>
+          <div class="witness-card">
+            <span class="witness-icon">🎭</span>
+            <div class="witness-label">Arc</div>
+            <div class="witness-val">Ongoing</div>
+          </div>
+          <div class="witness-card">
+            <span class="witness-icon">🏳️‍🌈</span>
+            <div class="witness-label">Orientation</div>
+            <div class="witness-val">Gay</div>
+          </div>
+          <div class="witness-card">
+            <span class="witness-icon">🤫</span>
+            <div class="witness-label">Cooperation</div>
+            <div class="witness-val">Reluctant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-title">🏁 F1 Loyalty Index</div>
+        <div class="score-card">
+          <div class="score-number">LH44</div>
+          <div class="score-label">Primary Racing Allegiance</div>
+        </div>
+        <p style="font-size:0.76rem; line-height:1.6; color:#555;">Unwavering across multiple consecutive losing seasons. Assessed as genuine conviction, not bandwagon behaviour.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER TAGS -->
+  <div class="footer-tags">
+    <span class="tag">Mohammad Aahil Ayan Ahmad</span>
+    <span class="tag">F1</span>
+    <span class="tag">Lewis Hamilton</span>
+    <span class="tag">Hotwheels</span>
+    <span class="tag">Islam</span>
+    <span class="tag">France</span>
+    <span class="tag">Underage Cycling</span>
+    <span class="tag">Taraksha Panda</span>
+    <span class="tag">LH44</span>
+    <span class="tag">Subject Profile</span>
+    <span class="tag">Field Dossier</span>
+  </div>
+
+</div>
+
+<div class="paper-footer">
+  © The Daily Forensic, 2026 &nbsp;·&nbsp; All Subjects Documented Without Permission &nbsp;·&nbsp; Taraksha Panda Was Not Harmed In The Making Of This Report &nbsp;·&nbsp; The Bike Remains Unlicensed
+</div>
+
+<!-- CHARTS -->
+<script>
+const gold = '#c8a84b';
+const dark = '#0d0d0d';
+const cream = '#f5f0e8';
+
+// 1. Interest Distribution — Doughnut
+new Chart(document.getElementById('interestChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['F1 / LH44', 'Hotwheels', 'France Discourse', 'Cycling Operations', 'Islam', 'Taraksha Panda Admin'],
+    datasets: [{
+      data: [38, 18, 12, 14, 10, 8],
+      backgroundColor: [dark, gold, '#888', '#c0392b', '#2c5f2e', '#5a5a8a'],
+      borderColor: cream,
+      borderWidth: 2,
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 11, padding: 8 } }
+    },
+    cutout: '58%'
+  }
+});
+
+// 2. Knowledge Index — Horizontal Bar
+new Chart(document.getElementById('knowledgeChart'), {
+  type: 'bar',
+  data: {
+    labels: ['F1 Rules', 'F1 History', 'Tyre Strategy', 'French Culture', 'World History', 'Biology', 'Maths', 'Geography'],
+    datasets: [{
+      label: 'Knowledge Score (%)',
+      data: [97, 94, 99, 71, 55, 48, 52, 60],
+      backgroundColor: [dark, dark, gold, '#888', '#aaa', '#bbb', '#bbb', '#aaa'],
+      borderWidth: 0,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: '#eee' }, ticks: { callback: v => v + '%' }, max: 100 },
+      y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+    }
+  }
+});
+
+// 3. Personality Radar
+new Chart(document.getElementById('personalityChart'), {
+  type: 'radar',
+  data: {
+    labels: ['F1 Devotion', 'Loyalty', 'Recklessness', 'French-ness', 'Chaos Energy', 'Self-Awareness', 'Honesty'],
+    datasets: [{
+      label: 'Aahil',
+      data: [99, 92, 78, 70, 74, 68, 88],
+      borderColor: gold,
+      backgroundColor: 'rgba(200,168,75,0.15)',
+      borderWidth: 2,
+      pointBackgroundColor: dark,
+      pointRadius: 4,
+    }, {
+      label: 'Average Person',
+      data: [20, 55, 35, 30, 40, 60, 65],
+      borderColor: '#aaa',
+      backgroundColor: 'rgba(170,170,170,0.08)',
+      borderWidth: 1.5,
+      pointBackgroundColor: '#aaa',
+      pointRadius: 3,
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 11 } }
+    },
+    scales: {
+      r: {
+        ticks: { display: false },
+        grid: { color: '#ddd' },
+        pointLabels: { font: { size: 9 } },
+        min: 0, max: 100
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
