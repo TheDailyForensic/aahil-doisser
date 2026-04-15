@@ -26,7 +26,6 @@
     flex-direction: column;
   }
 
-  /* ── TOP BAR ── */
   .topbar {
     background: var(--mid);
     border-bottom: 1px solid var(--border);
@@ -52,7 +51,6 @@
     color: #444;
   }
 
-  /* ── TICKER ── */
   .ticker {
     background: var(--gold);
     overflow: hidden;
@@ -71,7 +69,6 @@
   }
   @keyframes tick { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
-  /* ── MAIN ── */
   main {
     flex: 1;
     display: flex;
@@ -89,7 +86,6 @@
     overflow: hidden;
   }
 
-  /* gold corner accents */
   .card::before, .card::after {
     content: '';
     position: absolute;
@@ -125,7 +121,6 @@
 
   .card-body { padding: 2rem 1.8rem; }
 
-  /* status indicator */
   .status-row {
     display: flex;
     align-items: center;
@@ -151,7 +146,6 @@
     color: var(--gold);
   }
 
-  /* subject line */
   .subject-line {
     font-family: 'Playfair Display', serif;
     font-size: 1.7rem;
@@ -169,14 +163,12 @@
     margin-bottom: 1.6rem;
   }
 
-  /* divider */
   .divider {
     height: 1px;
     background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
     margin-bottom: 1.6rem;
   }
 
-  /* file info block */
   .file-info {
     background: #0a0a0a;
     border: 1px solid var(--border);
@@ -212,10 +204,7 @@
     font-style: italic;
   }
 
-  /* progress bar */
-  .progress-wrap {
-    margin-bottom: 1.6rem;
-  }
+  .progress-wrap { margin-bottom: 1.6rem; }
   .progress-label-row {
     display: flex;
     justify-content: space-between;
@@ -239,7 +228,6 @@
     transition: none;
   }
 
-  /* main download button */
   .dl-btn {
     display: flex;
     align-items: center;
@@ -262,19 +250,11 @@
     position: relative;
     overflow: hidden;
   }
-  .dl-btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0);
-    transition: background 0.2s;
-  }
   .dl-btn:hover { background: #e0be5a; }
   .dl-btn:active { transform: scale(0.99); }
   .dl-btn.complete { background: #4a7c4e; color: #d4f0d6; cursor: default; }
   .dl-btn.complete:hover { background: #4a7c4e; }
 
-  /* back link */
   .back-link {
     display: flex;
     align-items: center;
@@ -293,7 +273,6 @@
   }
   .back-link:hover { color: var(--gold); border-color: var(--gold); }
 
-  /* note */
   .disclaimer-note {
     margin-top: 1.4rem;
     padding-top: 1.2rem;
@@ -306,7 +285,6 @@
     text-align: center;
   }
 
-  /* ── FOOTER ── */
   footer {
     background: var(--mid);
     border-top: 1px solid var(--border);
@@ -323,20 +301,17 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <a href="https://thedailyforensic.github.io/Home/" class="topbar-logo">The Daily Forensic</a>
   <span class="topbar-right">Intel Package Distribution Unit · Clearance Level: Unrestricted</span>
 </div>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
     ⬛ INITIATING SECURE TRANSFER &nbsp;·&nbsp; PACKAGE: MAX VERSTAPPEN INTEL DOSSIER &nbsp;·&nbsp; FILE TYPE: WEBSITE &nbsp;·&nbsp; CLASSIFICATION: DECLASSIFIED &nbsp;·&nbsp; AAHIL IS GOING TO HATE THIS &nbsp;·&nbsp;
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <main>
   <div class="card">
     <div class="card-header">
@@ -379,7 +354,7 @@
         </div>
       </div>
 
-      <a href="V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip" download="V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip" class="dl-btn" id="dl-btn">
+      <a href="V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip" download="V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip" class="dl-btn" id="dl-btn">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M8 1v9M8 10l-3-3M8 10l3-3M2 12v2h12v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -400,13 +375,11 @@
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer>
   © The Daily Forensic, 2026 &nbsp;·&nbsp; <span>Intelligence Distribution Unit</span> &nbsp;·&nbsp; All Intel Distributed Without Subject's Consent &nbsp;·&nbsp; LH44 Remains Undefeated In Aahil's Heart
 </footer>
 
 <script>
-  // ── Animated progress bar on load ──
   const fill     = document.getElementById('progress-fill');
   const pctLabel = document.getElementById('pct-label');
   const statusDot  = document.getElementById('status-dot');
@@ -414,12 +387,23 @@
   const btn      = document.getElementById('dl-btn');
   const btnLabel = document.getElementById('btn-label');
 
+  // Trigger download immediately on page load
+  (function() {
+    const a = document.createElement('a');
+    a.href     = 'V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip';
+    a.download = 'V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  })();
+
+  // Animated progress bar (purely cosmetic, runs alongside instant download)
   let pct = 0;
   const steps = [
-    { to: 30, delay: 0,    dur: 600,  label: 'Authenticating...' },
-    { to: 65, delay: 650,  dur: 700,  label: 'Packaging Files...' },
-    { to: 90, delay: 1400, dur: 500,  label: 'Preparing Transfer...' },
-    { to: 100,delay: 1950, dur: 350,  label: 'Ready' },
+    { to: 40,  delay: 0,    dur: 200,  label: 'Authenticating...' },
+    { to: 75,  delay: 220,  dur: 200,  label: 'Packaging Files...' },
+    { to: 95,  delay: 440,  dur: 150,  label: 'Preparing Transfer...' },
+    { to: 100, delay: 610,  dur: 100,  label: 'Ready' },
   ];
 
   function animateTo(target, duration, onDone) {
@@ -436,7 +420,6 @@
     requestAnimationFrame(frame);
   }
 
-  // chain the steps
   let i = 0;
   function runStep() {
     if (i >= steps.length) return;
@@ -446,7 +429,7 @@
   }
   runStep();
 
-  // on complete, mark done + trigger download
+  // Mark complete after animation finishes (~750ms total)
   setTimeout(() => {
     statusDot.style.animation = 'none';
     statusDot.style.background = '#4a7c4e';
@@ -454,15 +437,7 @@
     statusText.style.color = '#4a7c4e';
     btn.classList.add('complete');
     btnLabel.textContent = '✓  Download Ready';
-
-    // Auto-trigger download
-    const a = document.createElement('a');
-    a.href     = 'V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip';
-    a.download = 'V̶̧̘͕̗͉̺̲̮̗̹̬̙̮̯̽͛͒́̄̀̑̐̾̇͂͆̒͐ͅỈ̸̛̳̬̹̜̲͚̱͇͈̋̀͂̇̈͝͝R̶̫̝̘̩̝̟͈̳̱̫̐̾͐̓͑̾̈́͂̈͌͗͒͗̀Ū̷̬̪̞͉ͅS̵͎͕͙̬͉͙̺̤̥̬̙̪͍̋͒̀͐̉̂͋́̎̄̀̏͠͝͠ͅ.zip';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }, 2350);
+  }, 750);
 </script>
 </body>
 </html>
