@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +39,11 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
   font-size: clamp(2.2rem, 7vw, 4.8rem);
   font-weight: 900; letter-spacing: -0.01em; line-height: 1; color: #f5f0e8;
   transition: font-size 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
+.paper-name:hover { color: #c8a84b; transition: color 0.2s, font-size 0.3s; }
 .masthead.compact .paper-name { font-size: clamp(1.3rem, 3vw, 2rem); }
 .paper-tagline {
   font-family: 'Oswald', sans-serif; font-size: 0.68rem;
@@ -52,7 +55,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 
 /* TICKER */
 .ticker-wrap { background: #c8a84b; overflow: hidden; white-space: nowrap; padding: 0.38rem 0; }
-.ticker-inner { display: inline-block; animation: ticker 28s linear infinite; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 700; color: #0d0d0d; }
+.ticker-inner { display: inline-block; animation: ticker 32s linear infinite; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 700; color: #0d0d0d; }
 @keyframes ticker { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
 .container { max-width: 920px; margin: 0 auto; padding: 2.8rem 2rem; }
@@ -92,6 +95,77 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 .chart-box-sub { font-size: 0.7rem; font-style: italic; color: #999; margin-bottom: 1rem; }
 .chart-box canvas { width: 100% !important; max-height: 280px; }
 
+/* PHOTO EVIDENCE BOX */
+.evidence-box {
+  background: #0d0d0d;
+  border: 2px solid #c8a84b;
+  padding: 1.4rem;
+  margin: 2.2rem 0;
+}
+.evidence-box-header {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c8a84b;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.evidence-item {
+  position: relative;
+}
+.evidence-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #333;
+  filter: contrast(1.05) brightness(0.95);
+}
+.evidence-caption {
+  background: rgba(0,0,0,0.85);
+  padding: 0.5rem 0.6rem;
+  border-top: 1px solid #c8a84b;
+}
+.evidence-caption-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c8a84b;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.evidence-caption-text {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.68rem;
+  color: #aaa;
+  font-style: italic;
+  line-height: 1.4;
+}
+.evidence-stamp {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #c8a84b;
+  color: #0d0d0d;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+}
+
 /* DARK CALLOUT BOX */
 .callout-box { background: #0d0d0d; color: #f5f0e8; padding: 1.5rem; margin: 2rem 0; border-left: 6px solid #c8a84b; }
 .callout-box-title { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: #c8a84b; margin-bottom: 0.8rem; }
@@ -122,9 +196,118 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 .witness-label { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: #777; }
 .witness-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 900; color: #0d0d0d; }
 
+/* ROBLOX INTEL CARD */
+.intel-card {
+  background: #f5f0e8;
+  border: 2px solid #0d0d0d;
+  padding: 1.1rem 1.2rem;
+  margin: 1.2rem 0 0.5rem;
+  position: relative;
+}
+.intel-card::before {
+  content: '⬛ DIGITAL INTEL';
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.3em;
+  color: #c8a84b;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #ddd;
+}
+.intel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+.intel-row strong { color: #0d0d0d; font-size: 0.72rem; letter-spacing: 0.05em; }
+.intel-platform-badge {
+  background: #0d0d0d;
+  color: #c8a84b;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  padding: 0.15rem 0.4rem;
+  text-transform: uppercase;
+}
+
 /* FOOTER */
 .footer-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #0d0d0d; }
 .tag { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid #0d0d0d; color: #0d0d0d; }
+
+/* BACK TO TOP BOX */
+.back-to-top-section {
+  margin-top: 3rem;
+  border-top: 3px double #0d0d0d;
+  padding-top: 2rem;
+  text-align: center;
+}
+.back-to-top-inner {
+  display: inline-block;
+  background: #0d0d0d;
+  border: 2px solid #c8a84b;
+  padding: 1.8rem 3rem;
+  position: relative;
+}
+.back-to-top-inner::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid #333;
+  pointer-events: none;
+}
+.back-to-top-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #555;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: none;
+  border: 2px solid #c8a84b;
+  color: #c8a84b;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.back-to-top-btn:hover {
+  background: #c8a84b;
+  color: #0d0d0d;
+}
+.back-to-top-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.back-to-top-btn:hover .back-to-top-arrow {
+  transform: translateY(-3px);
+}
+.back-to-top-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.7rem;
+  color: #444;
+  font-style: italic;
+  display: block;
+  margin-top: 0.8rem;
+}
+
 .paper-footer { background: #0d0d0d; color: #555; text-align: center; padding: 1rem 2rem; font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; margin-top: 2rem; border-top: 4px solid #c8a84b; }
 .disclaimer { background: #fff3cd; border-left: 4px solid #c8a84b; padding: 0.8rem 1.2rem; margin-bottom: 2rem; font-size: 0.76rem; color: #555; font-style: italic; }
 
@@ -146,11 +329,188 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 .home-link-bar a:hover { color: #f5f0e8; }
 .home-link-bar .sep { color: #333; }
 
+/* VERSTAPPEN POPUP */
+#hamilton-popup {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.max-popup-shell {
+  background: #0a0a0a;
+  border: 2px solid #c8a84b;
+  width: 420px;
+  max-width: 95vw;
+  box-shadow: 0 0 60px rgba(200,168,75,0.25), 0 0 120px rgba(0,0,0,0.8);
+  overflow: hidden;
+  position: relative;
+}
+.max-popup-topbar {
+  background: #c8a84b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+}
+.max-popup-topbar-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+.max-popup-close-btn {
+  background: #0d0d0d;
+  border: none;
+  color: #c8a84b;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.max-popup-close-btn:hover { background: #1a1a1a; }
+.max-popup-image-area {
+  background: #111;
+  position: relative;
+  overflow: hidden;
+}
+.max-popup-image-area img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: contrast(1.1) saturate(0.9);
+}
+.max-popup-image-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 1.5rem 1rem 0.8rem;
+}
+.max-popup-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(200,168,75,0.2);
+  line-height: 1;
+  position: absolute;
+  top: 8px; right: 12px;
+  pointer-events: none;
+}
+.max-popup-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #f5f0e8;
+  line-height: 1.1;
+}
+.max-popup-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  color: #c8a84b;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+.max-popup-body {
+  padding: 1.2rem 1.4rem;
+}
+.max-popup-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.max-stat {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+}
+.max-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #c8a84b;
+  line-height: 1;
+  display: block;
+}
+.max-stat-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  color: #555;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 0.2rem;
+}
+.max-popup-note {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  padding: 0.7rem;
+  border-left: 3px solid #c8a84b;
+  background: #111;
+}
+.max-popup-note strong { color: #c8a84b; font-style: normal; }
+.max-popup-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  background: #c8a84b;
+  color: #0d0d0d;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+  margin-bottom: 0.6rem;
+}
+.max-popup-download-btn:hover { background: #e0be5a; }
+.max-popup-download-btn svg { flex-shrink: 0; }
+.max-popup-dismiss {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.25em;
+  color: #444;
+  text-transform: uppercase;
+  padding-bottom: 0.2rem;
+}
+.max-popup-dismiss kbd {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #888;
+  padding: 0.1rem 0.3rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.52rem;
+}
+
+#hamilton-overlay { display:none; position:fixed; inset:0; z-index:9998; background:rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+
 @media (max-width: 680px) {
   .article-body { grid-template-columns: 1fr; }
   .id-card-wrap { grid-template-columns: 1fr; }
   .id-half:first-child { border-right: none; border-bottom: 1px solid #333; }
   .witness-grid { grid-template-columns: 1fr 1fr; }
+  .evidence-grid { grid-template-columns: 1fr; }
+  .max-popup-stats { grid-template-columns: repeat(3,1fr); }
+  .back-to-top-inner { padding: 1.4rem 1.5rem; }
 }
 </style>
 </head>
@@ -165,13 +525,13 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
     <span>Intelligence Dossier Edition</span>
     <span>Vol. XLII · No. 104</span>
   </div>
-  <div class="paper-name">The Daily Forensic</div>
+  <a href="https://thedailyforensic.github.io/Home/" class="paper-name">The Daily Forensic</a>
   <div class="paper-tagline">Truth In Every Pixel — Science In Every Story</div>
 </header>
 
 <!-- HOME BREADCRUMB -->
 <div class="home-link-bar">
-  <a href="https://thedailyforensic.github.io/" >← The Daily Forensic</a>
+  <a href="https://thedailyforensic.github.io/Home/">← The Daily Forensic</a>
   <span class="sep">·</span>
   <span style="color:#666;">Intelligence Dossier Edition · Vol. XLII · No. 104</span>
 </div>
@@ -179,7 +539,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
-    ⚡ EXCLUSIVE: Full Dossier Released On Region's Most Documented F1 Superfan &nbsp;·&nbsp; Sources Confirm Subject Has Never Once Legally Operated A Motor Vehicle &nbsp;·&nbsp; Taraksha Panda Remains Unavailable For Comment &nbsp;·&nbsp; LH44 Sticker Count Reaches "Structurally Concerning" Levels &nbsp;·&nbsp; Hotwheels Collection Valued Higher Than Subject's Future Car &nbsp;·&nbsp; Breaking: Bajaj Avenger Has No Plates, Rider Has No License And Is Underage &nbsp;·&nbsp;
+    ⚡ EXCLUSIVE: Full Dossier Released On Region's Most Documented F1 Superfan &nbsp;·&nbsp; Sources Confirm Subject Has Never Once Legally Operated A Motor Vehicle &nbsp;·&nbsp; Taraksha Panda Remains Unavailable For Comment &nbsp;·&nbsp; LH44 Sticker Count Reaches "Structurally Concerning" Levels &nbsp;·&nbsp; Hotwheels Collection Valued Higher Than Subject's Future Car &nbsp;·&nbsp; Breaking: Bajaj Avenger Has No Plates, Rider Has No License And Is Underage &nbsp;·&nbsp; Digital Surveillance Confirms Roblox Username: lh44_iceman &nbsp;·&nbsp; Subject's Phone Confiscated Twice This Semester — Currently In Pocket &nbsp;·&nbsp;
   </div>
 </div>
 
@@ -192,7 +552,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 
   <h1 class="headline">The Dossier on Mohammad Aahil Ayan Ahmad: F1 Fanatic, Underage Road Menace, and Collector of Very Small Cars</h1>
 
-  <p class="subheadline">A fully sourced, peer-reviewed forensic investigation into the hobbies, habits, personality profile, and questionable road presence of Mohammad Aahil Ayan Ahmad — Muslim, French sympathiser, sworn devotee of Lewis Hamilton, underage Bajaj Avenger operator of deeply concerning legal standing, and best friend to one Taraksha Panda (supporting character, limited screentime).</p>
+  <p class="subheadline">A fully sourced, peer-reviewed forensic investigation into the hobbies, habits, personality profile, and questionable road presence of Mohammad Aahil Ayan Ahmad — Muslim, French sympathiser, sworn devotee of Lewis Hamilton, underage Bajaj Avenger operator of deeply concerning legal standing, serial phone smuggler, and best friend to one Taraksha Panda (supporting character, limited screentime).</p>
 
   <div class="byline">
     By <span>Sr. Investigator M. Clarkson</span> &nbsp;|&nbsp; Field Correspondent &nbsp;|&nbsp; <span>The Daily Forensic</span> &nbsp;|&nbsp; April 13, 2026
@@ -208,6 +568,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
       <div class="id-field"><em>Religion:</em> <span>Islam (Practising)</span></div>
       <div class="id-field"><em>Nationality:</em> <span>Not French (Insists Otherwise)</span></div>
       <div class="id-field"><em>Primary Vehicle:</em> <span>Bajaj Avenger, No License, Underage</span></div>
+      <div class="id-field"><em>Roblox:</em> <span>lh44_iceman</span></div>
       <div class="id-field"><em>Threat Level:</em> <span>Moderate (On The Road)</span></div>
       <div class="classification-stamp">Dossier Active</div>
     </div>
@@ -232,7 +593,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
   <div class="article-body">
     <div class="main-text">
 
-      <p>In what The Daily Forensic's intelligence division is calling "the most thorough personality dossier compiled on an individual who has never technically done anything illegal except ride that bike," our field team has assembled a complete forensic profile on one Mohammad Aahil Ayan Ahmad. The subject, whose interest portfolio spans Formula 1, miniature die-cast automobiles, Islamically-inflected lifestyle practices, a profound and unexplained affinity for the French, and an ongoing vehicular situation that would concern most traffic authorities, was placed under analytical observation approximately three weeks ago when a senior correspondent noticed him doing a corner at unacceptable speed on a motorcycle he does not legally own the right to operate. The resulting investigation took eleven days, four strong cups of tea, and one very uncomfortable conversation with Taraksha Panda, who confirmed everything and then pretended he hadn't.</p>
+      <p>In what The Daily Forensic's intelligence division is calling "the most thorough personality dossier compiled on an individual who has never technically done anything illegal except ride that motorcycle," our field team has assembled a complete forensic profile on one Mohammad Aahil Ayan Ahmad. The subject, whose interest portfolio spans Formula 1, miniature die-cast automobiles, Islamically-inflected lifestyle practices, a profound and unexplained affinity for the French, and an ongoing vehicular situation that would concern most traffic authorities, was placed under analytical observation approximately three weeks ago when a senior correspondent noticed him doing a corner at unacceptable speed on a Bajaj Avenger he does not legally own the right to operate. The resulting investigation took eleven days, four strong cups of tea, and one very uncomfortable conversation with Taraksha Panda, who confirmed everything and then pretended he hadn't.</p>
 
       <p>The subject's most defining characteristic, and the one our analysts returned to most frequently during internal briefings, is his relationship with Formula 1. This is not a casual hobby. This is not the kind of interest where a person checks scores occasionally or watches a race when nothing else is on. Aahil's engagement with F1 is <strong>forensic in its intensity</strong> — the sort of devotion that fills notification queues, populates conversation topics at inappropriate moments, and has resulted in a profile picture that prominently features the number 44. That number is, of course, the racing number of Sir Lewis Hamilton, seven-time World Drivers' Champion, Mercedes AMG Petronas Formula One Team's most decorated driver, and the man whose career Aahil appears to have appointed himself unofficial documentarian of. When Hamilton wins, sources say the subject is "unbearable in the best way." When Hamilton does not win, the subject is reportedly "also unbearable, but in a different way."</p>
 
@@ -272,6 +633,38 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 
       <p>To be clear: the subject has not, to date, been involved in a collision, injury, or formal legal proceeding related to his motorcycle activity. This is either a testament to his reflexes, his luck, or a comprehensive failure of local traffic enforcement infrastructure to notice a minor riding a Bajaj Avenger without a licence. Possibly all three. Taraksha Panda, when asked to characterise the riding style, said only: "He drives like he's got DRS." Our forensic team took this to mean the subject applies F1 strategic logic to a 220cc motorcycle on public roads, at an age where most jurisdictions consider him legally unqualified to operate a moped. We have logged this under "concerning, consistent with character profile, and technically criminal."</p>
 
+      <!-- PHOTO EVIDENCE BOX -->
+      <!--
+        IMAGE GUIDE FOR EVIDENCE BOX:
+        avenger_1.jpg — Exhibit A: Photo of Aahil ON or WITH the Bajaj Avenger (any candid shot)
+        avenger_2.jpg — Exhibit B: Second photo of Aahil on/near the Bajaj Avenger (different angle or moment)
+      -->
+      <div class="evidence-box">
+        <div class="evidence-box-header">
+          <span>📷</span>
+          <span>Field Evidence — Visual Documentation Unit</span>
+          <span style="margin-left:auto; font-size:0.48rem; color:#555;">CLASSIFICATION: EXHIBIT A–B</span>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-item">
+            <img src="avenger_1.jpg" alt="Subject operating Bajaj Avenger — field photograph" />
+            <div class="evidence-stamp">Exhibit A</div>
+            <div class="evidence-caption">
+              <span class="evidence-caption-title">Operational Photograph — Vehicle Evidence</span>
+              <span class="evidence-caption-text">Subject observed operating Bajaj Avenger. No licence plate visible. Subject is underage. File remains open.</span>
+            </div>
+          </div>
+          <div class="evidence-item">
+            <img src="avenger_2.jpg" alt="Subject on motorcycle — supplementary field photograph" />
+            <div class="evidence-stamp">Exhibit B</div>
+            <div class="evidence-caption">
+              <span class="evidence-caption-title">Supplementary — Road Conditions</span>
+              <span class="evidence-caption-text">Secondary field image. Speed assessed as "inconsistent with environment." Taraksha Panda was reportedly present. He confirmed it. Then denied it.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="callout-box">
         <div class="callout-box-title">⚡ Field Note — The Taraksha Panda Paradox</div>
         <p>Any honest account of Mohammad Aahil Ayan Ahmad must grapple with his relationship to <strong>Taraksha Panda</strong> — a figure who occupies an unusual position in the subject's social universe. Panda is, by all accounts, a best friend. He is also, by equal accounts, a secondary character in every story. He is present in most documented incidents. He is rarely the cause of them. He witnesses things. He reports things, reluctantly, when interviewed. He is gay, which the dossier records factually and without editorial weight. His primary narrative function appears to be: <strong>being there when it happens, and confirming it later.</strong> He declined to be interviewed for this report. He then texted back three hours later with additional details. This is characteristic of his profile.</p>
@@ -279,7 +672,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 
       <div class="section-head">Religious Identity — Islam, Observed</div>
 
-      <p>The subject is Muslim. This is documented, unambiguous, and relevant to the subject profile in the sense that it forms part of his identity as he navigates a social environment that does not always make this straightforward. Our analysts noted that Aahil's faith is not performative or conversational — it is simply present, in the way that foundational things tend to be. It does not conflict with his F1 obsession, his French sympathies, his Hotwheels collection, or his extralegal cycling habits. In this sense, he is a perfectly ordinary person who happens to hold a set of beliefs that are his own business, reported here only because a comprehensive dossier that omitted them would be incomplete. The Daily Forensic does not editorialise on faith. We simply document it.</p>
+      <p>The subject is Muslim. This is documented, unambiguous, and relevant to the subject profile in the sense that it forms part of his identity as he navigates a social environment that does not always make this straightforward. Our analysts noted that Aahil's faith is not performative or conversational — it is simply present, in the way that foundational things tend to be. It does not conflict with his F1 obsession, his French sympathies, his Hotwheels collection, or his extralegal motorcycle habits. In this sense, he is a perfectly ordinary person who happens to hold a set of beliefs that are his own business, reported here only because a comprehensive dossier that omitted them would be incomplete. The Daily Forensic does not editorialise on faith. We simply document it.</p>
 
       <!-- CHART 3: Personality Radar -->
       <div class="chart-box">
@@ -288,17 +681,51 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
         <canvas id="personalityChart"></canvas>
       </div>
 
+      <div class="section-head">The Digital Footprint — Online Intelligence Report</div>
+
+      <p>No modern dossier is complete without a thorough examination of the subject's digital presence, and Mohammad Aahil Ayan Ahmad presents a profile that is, in the considered opinion of our intelligence unit, <strong>entirely consistent with everything else in this file.</strong> The subject maintains an active presence across multiple platforms, all of which orbit the same core identity: LH44 devotee, automotive enthusiast, and person who has very specific opinions he will share with you whether you asked or not.</p>
+
+      <p>Of particular forensic interest is the subject's Roblox account, identified during a routine sweep of his digital identity by our junior analyst, who spent more time on this than we are prepared to disclose. The username is <strong>lh44_iceman</strong>. Our team spent several minutes considering whether this required additional commentary before concluding that it did not — the username speaks entirely for itself. It combines Hamilton's racing number with a modifier that suggests the subject views himself as possessing a certain coolness under pressure. Given the Bajaj Avenger evidence, this self-assessment is at least partially corroborated.</p>
+
+      <!-- ROBLOX INTEL CARD -->
+      <div class="intel-card">
+        <div class="intel-row">
+          <span>Platform</span>
+          <span class="intel-platform-badge">Roblox</span>
+        </div>
+        <div class="intel-row">
+          <span>Username</span>
+          <strong>lh44_iceman</strong>
+        </div>
+        <div class="intel-row">
+          <span>Assessment</span>
+          <strong style="color:#8b7355;">Self-Mythologising, Documented</strong>
+        </div>
+        <div class="intel-row">
+          <span>Reference</span>
+          <strong>Hamilton #44 + Perceived Composure</strong>
+        </div>
+        <div class="intel-row">
+          <span>Analyst Note</span>
+          <strong style="font-size:0.62rem; letter-spacing:0.03em; text-transform:none;">Username coherence with subject profile: 100%</strong>
+        </div>
+      </div>
+
+      <div class="section-head">The Phone Smuggling Operation — An Ongoing Infraction</div>
+
+      <p>A separate and, in the opinion of this dossier, entirely characteristic dimension of the subject's profile is his documented practice of smuggling his mobile phone into school. This is not a one-time transgression. This is not the kind of thing that happens once and is learned from. This is a repeating pattern of institutional non-compliance that our analysts have logged as "consistent with a subject who calculates that the benefit of having the phone outweighs the risk of consequences, and has so far been correct." The phone, it should be noted, is presumably the primary device through which F1 notifications are received, race updates are tracked, and arguments about tyre strategy are initiated mid-lesson. The school has been informed, in the sense that the school has discovered the phone on multiple occasions. The phone has nonetheless continued to appear. We have documented this under: <strong>risk-tolerant behaviour, F1-adjacent motivation, actively unresolved.</strong></p>
+
       <div class="section-head">The Hamilton Devotion — A Quantified Analysis</div>
 
-      <p>If one were to select a single data point from this entire dossier and call it the most analytically significant, that data point would be the subject's relationship to Lewis Hamilton. The LH44 designation — Hamilton's iconic number — appears in Aahil's digital identity across multiple platforms. This is not unusual for an F1 fan. What sets it apart is the durability of the commitment. Hamilton has, at points in recent seasons, been in a car that was not competitive. He has had races where results did not reflect his talent. He has had off-weekends. Throughout all of this, the subject's allegiance has shown zero detectable variation. This is notable. Many casual fans are results-driven — they support a driver when the car is good and go quiet when it isn't. Aahil does not go quiet. He goes louder, and more analytical, and starts explaining tyre deg.</p>
+      <p>If one were to select a single data point from this entire dossier and call it the most analytically significant, that data point would be the subject's relationship to Lewis Hamilton. The LH44 designation — Hamilton's iconic number — appears in Aahil's digital identity across multiple platforms, including, as documented above, his Roblox username. This is not unusual for an F1 fan. What sets it apart is the durability of the commitment. Hamilton has, at points in recent seasons, been in a car that was not competitive. He has had races where results did not reflect his talent. He has had off-weekends. Throughout all of this, the subject's allegiance has shown zero detectable variation. This is notable. Many casual fans are results-driven — they support a driver when the car is good and go quiet when it isn't. Aahil does not go quiet. He goes louder, and more analytical, and starts explaining tyre deg.</p>
 
       <p>Our motorsport correspondent, who was brought in for this specific section of the dossier, reviewed the subject's documented statements on Hamilton across a 14-month period and concluded: "This individual understands the sport better than the average pundit. He is also incapable of acknowledging that any driver other than Hamilton has ever made a correct decision." This is a fair assessment. It is also, frankly, the hallmark of a genuine fan — not the performative kind, but the real kind, where your investment in the outcome is disproportionate to any rational calculus and you are fully aware of this and continue anyway.</p>
 
       <div class="section-head">Conclusion — The Profile In Full</div>
 
-      <p>Mohammad Aahil Ayan Ahmad is, when viewed in totality, a coherent human being whose apparent contradictions resolve cleanly upon closer inspection. He is fat — his words, deployed with the casual confidence of someone who has made peace with it. He is Muslim — practising, grounded, not a subject for debate. He is devoted to Lewis Hamilton and Formula 1 to a degree that functions less as a hobby and more as a secondary identity. He collects Hotwheels with the seriousness of a much older man and the joy of a much younger one. He has feelings about France that are disproportionate to any documented French experience. He rides a Bajaj Avenger — underage and without a licence — like he is defending a racing line. And he keeps Taraksha Panda around, which tells you more about his character than any forensic metric.</p>
+      <p>Mohammad Aahil Ayan Ahmad is, when viewed in totality, a coherent human being whose apparent contradictions resolve cleanly upon closer inspection. He is fat — his words, deployed with the casual confidence of someone who has made peace with it. He is Muslim — practising, grounded, not a subject for debate. He is devoted to Lewis Hamilton and Formula 1 to a degree that functions less as a hobby and more as a secondary identity. He collects Hotwheels with the seriousness of a much older man and the joy of a much younger one. He has feelings about France that are disproportionate to any documented French experience, and an inability to conjugate its language that is disproportionate to the strength of those feelings. He rides a Bajaj Avenger — underage and without a licence — like he is defending a racing line. He smuggles his phone into school with the strategic commitment of someone who has simply decided that certain rules do not apply to him. His Roblox username is lh44_iceman. And he keeps Taraksha Panda around, which tells you more about his character than any forensic metric.</p>
 
-      <p>What the data ultimately reveals is not a subject who is difficult to understand, but one who is difficult to summarise. He is specific. Specific in his passions, specific in his loyalties, specific in his opinions. The Daily Forensic does not typically editoralise in its intelligence profiles. We make an exception here: this is someone who knows exactly what he likes, does not apologise for it, and would almost certainly read this dossier, identify every source, and send Taraksha Panda an angry message within four minutes of publication. We consider this the highest form of accurate reporting. The file is, for now, complete.</p>
+      <p>What the data ultimately reveals is not a subject who is difficult to understand, but one who is difficult to summarise. He is specific. Specific in his passions, specific in his loyalties, specific in his opinions. The Daily Forensic does not typically editorialise in its intelligence profiles. We make an exception here: this is someone who knows exactly what he likes, does not apologise for it, and would almost certainly read this dossier, identify every source, and send Taraksha Panda an angry message within four minutes of publication. We consider this the highest form of accurate reporting. The file is, for now, complete.</p>
 
     </div>
 
@@ -311,7 +738,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
           <div class="score-number">7.4</div>
           <div class="score-label">Chaos Index / 10</div>
         </div>
-        <p style="font-size:0.78rem; line-height:1.6; color:#555;">Elevated due to cycling behaviour and unchecked F1 discourse. Low in all other threat categories.</p>
+        <p style="font-size:0.78rem; line-height:1.6; color:#555;">Elevated due to Bajaj Avenger activity and unchecked F1 discourse. Low in all other threat categories.</p>
       </div>
 
       <div class="sidebar-box">
@@ -340,6 +767,10 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
           <div class="trait-name"><span>Taraksha Panda Loyalty</span> <strong>96%</strong></div>
           <div class="bar-track"><div class="bar-fill" style="width:96%;"></div></div>
         </div>
+        <div class="trait-row">
+          <div class="trait-name"><span>Phone Smuggling</span> <strong>94%</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:94%;"></div></div>
+        </div>
       </div>
 
       <div class="sidebar-box">
@@ -358,7 +789,15 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
         </div>
         <div class="fact-item">
           <div class="fact-bullet">▶</div>
-          <div class="fact-text">Bajaj Avenger operations logged at "DRS-equivalent speeds" by associate Taraksha Panda. Subject is underage and unlicensed. File remains open.</div>
+          <div class="fact-text">Bajaj Avenger operations logged at "DRS-equivalent speeds." Subject is underage and unlicensed. File remains open.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Phone confiscated at school on multiple occasions. Phone subsequently re-smuggled. Cycle ongoing.</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-bullet">▶</div>
+          <div class="fact-text">Roblox username confirmed as lh44_iceman. No further comment required.</div>
         </div>
         <div class="fact-item">
           <div class="fact-bullet">▶</div>
@@ -405,11 +844,28 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
         <p style="font-size:0.76rem; line-height:1.6; color:#555;">Unwavering across multiple consecutive losing seasons. Assessed as genuine conviction, not bandwagon behaviour.</p>
       </div>
 
+      <div class="sidebar-box">
+        <div class="sidebar-title">📱 Digital Intelligence</div>
+        <div class="score-card">
+          <div class="score-number" style="font-size:1.3rem; letter-spacing:0.05em;">lh44_iceman</div>
+          <div class="score-label">Roblox — Confirmed Username</div>
+        </div>
+        <p style="font-size:0.76rem; line-height:1.6; color:#555; margin-bottom:0.8rem;">Username combines primary racing allegiance (LH44) with self-assessed composure rating (iceman). Analysts describe coherence as "worryingly on-brand."</p>
+        <div style="background:#fff3cd; border-left:3px solid #c8a84b; padding:0.5rem 0.6rem; font-size:0.7rem; font-style:italic; color:#555;">
+          ⚠ Phone used to access said platform is currently in subject's pocket. School is unaware.
+        </div>
+      </div>
+
     </div>
   </div>
 
 
   <!-- ASPIRATION SECTION -->
+  <!--
+    IMAGE GUIDE FOR COMPARISON SECTION:
+    aahil_portrait.jpg  — Left panel: any clear photo of Aahil (portrait, casual, anything)
+    hamilton.jpg        — Right panel: Lewis Hamilton photo (search "Lewis Hamilton F1 press photo")
+  -->
   <div style="margin: 3rem 0; border-top: 3px double #0d0d0d; padding-top: 2rem;">
     <div class="article-category">Supplementary Field Report — Aspirational Profile</div>
     <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,3.5vw,2.2rem); font-weight:900; color:#0d0d0d; margin-bottom:1rem; line-height:1.15;">The Hamilton Blueprint: How Aahil Is Quietly Engineering His Own Legend</h2>
@@ -417,13 +873,13 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem; border:2px solid #0d0d0d;">
       <div style="padding:1rem; text-align:center; background:#0d0d0d;">
         <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:#c8a84b; margin-bottom:0.6rem;">▶ Subject Under Study</div>
-        <img src="1" alt="Mohammad Aahil Ayan Ahmad" style="width:100%; max-width:280px; height:auto; border:2px solid #c8a84b; display:block; margin:0 auto;" />
+        <img src="aahil_portrait.jpg" alt="Mohammad Aahil Ayan Ahmad" style="width:100%; max-width:280px; height:auto; border:2px solid #c8a84b; display:block; margin:0 auto;" />
         <div style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#f5f0e8; margin-top:0.6rem; font-style:italic;">Mohammad Aahil Ayan Ahmad</div>
         <div style="font-family:'Oswald',sans-serif; font-size:0.58rem; color:#888; letter-spacing:0.2em; text-transform:uppercase;">The Understudy</div>
       </div>
       <div style="padding:1rem; text-align:center; background:#f5f0e8;">
         <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:#0d0d0d; margin-bottom:0.6rem;">▶ The Blueprint</div>
-        <img src="1" alt="Lewis Hamilton" style="width:100%; max-width:280px; height:auto; border:2px solid #0d0d0d; display:block; margin:0 auto;" />
+        <img src="hamilton.jpg" alt="Lewis Hamilton" style="width:100%; max-width:280px; height:auto; border:2px solid #0d0d0d; display:block; margin:0 auto;" />
         <div style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#0d0d0d; margin-top:0.6rem; font-style:italic;">Sir Lewis Hamilton</div>
         <div style="font-family:'Oswald',sans-serif; font-size:0.58rem; color:#888; letter-spacing:0.2em; text-transform:uppercase;">The Benchmark</div>
       </div>
@@ -436,7 +892,7 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
 
       <div class="pull-quote">"He doesn't just want to watch Hamilton win. He wants to understand what it would feel like to be the one winning."<br>— Internal Forensic Psychology Assessment, Day 9</div>
 
-      <p>Beyond the driving instinct, the Hamilton blueprint manifests in subtler ways. Hamilton is known, across seven world championships and two decades of elite competition, for combining absolute competitive ferocity with an unusual degree of self-awareness and personal authenticity — a man who races in a Mercedes and also wears a pink bow, because he has long since stopped letting the sport's culture dictate his presentation. Aahil's profile shows analogous traits: the F1 obsession sits alongside genuine religious identity, Franco-inexplicable cultural loyalties, and a Hotwheels collection he does not appear remotely embarrassed about. These are not the hobbies and beliefs of someone who curates himself for an audience. They are the characteristics of someone who, like his role model, has apparently decided that authenticity is not optional. The Daily Forensic files this under: aspirational consistency, documented.</p>
+      <p>Beyond the driving instinct, the Hamilton blueprint manifests in subtler ways. Hamilton is known, across seven world championships and two decades of elite competition, for combining absolute competitive ferocity with an unusual degree of self-awareness and personal authenticity — a man who races in a Mercedes and also wears a pink bow, because he has long since stopped letting the sport's culture dictate his presentation. Aahil's profile shows analogous traits: the F1 obsession sits alongside genuine religious identity, Franco-inexplicable cultural loyalties, a Hotwheels collection he does not appear remotely embarrassed about, a Roblox account whose username is a direct homage to his idol, and a phone that is currently in his school pocket in direct contravention of institutional policy. These are not the hobbies and beliefs of someone who curates himself for an audience. They are the characteristics of someone who, like his role model, has apparently decided that authenticity is not optional. The Daily Forensic files this under: aspirational consistency, documented.</p>
     </div>
   </div>
 
@@ -451,14 +907,29 @@ body { background: #f5f0e8; font-family: 'Source Serif 4', Georgia, serif; color
     <span class="tag">Underage Bajaj Avenger</span>
     <span class="tag">Taraksha Panda</span>
     <span class="tag">LH44</span>
+    <span class="tag">lh44_iceman</span>
+    <span class="tag">Roblox</span>
+    <span class="tag">Phone Smuggling</span>
     <span class="tag">Subject Profile</span>
     <span class="tag">Field Dossier</span>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <div class="back-to-top-section">
+    <div class="back-to-top-inner">
+      <span class="back-to-top-label">— End of Dossier · Classification Level: Eyes Only —</span>
+      <a href="#masthead" class="back-to-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+        <span class="back-to-top-arrow">↑</span>
+        Return To Top Of File
+      </a>
+      <span class="back-to-top-sub">The Daily Forensic · Intelligence Dossier Edition · Vol. XLII No. 104</span>
+    </div>
   </div>
 
 </div>
 
 <div class="paper-footer">
-  © The Daily Forensic, 2026 &nbsp;·&nbsp; All Subjects Documented Without Permission &nbsp;·&nbsp; Taraksha Panda Was Not Harmed In The Making Of This Report &nbsp;·&nbsp; The Bike Remains Unlicensed
+  © The Daily Forensic, 2026 &nbsp;·&nbsp; All Subjects Documented Without Permission &nbsp;·&nbsp; Taraksha Panda Was Not Harmed In The Making Of This Report &nbsp;·&nbsp; The Avenger Remains Unlicensed &nbsp;·&nbsp; The Phone Remains In His Pocket
 </div>
 
 <!-- CHARTS -->
@@ -471,7 +942,7 @@ const cream = '#f5f0e8';
 new Chart(document.getElementById('interestChart'), {
   type: 'doughnut',
   data: {
-    labels: ['F1 / LH44', 'Hotwheels', 'France Discourse', 'Cycling Operations', 'Islam', 'Taraksha Panda Admin'],
+    labels: ['F1 / LH44', 'Hotwheels', 'France Discourse', 'Bajaj Avenger Ops', 'Islam', 'Taraksha Panda Admin'],
     datasets: [{
       data: [38, 18, 12, 14, 10, 8],
       backgroundColor: [dark, gold, '#8b7355', '#a0522d', '#6b7c4e', '#7a6652'],
@@ -549,7 +1020,7 @@ new Chart(document.getElementById('personalityChart'), {
 
 // ── SCROLLING MASTHEAD + PROGRESS BAR ──
 const bar = document.getElementById('progress-bar');
-const mh = document.getElementById('masthead');
+const mh  = document.getElementById('masthead');
 window.addEventListener('scroll', () => {
   const h = document.body.scrollHeight - window.innerHeight;
   bar.style.width = (window.scrollY / h * 100) + '%';
@@ -557,41 +1028,77 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
-<!-- HAMILTON POPUP -->
-<div id="hamilton-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; cursor:pointer;" onclick="openMax()">
-  <div style="background:#0d0d0d; border:3px solid #c8a84b; padding:2rem 2.5rem; text-align:center; box-shadow:0 0 40px rgba(0,0,0,0.6); max-width:320px;">
-    <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.4em; text-transform:uppercase; color:#c8a84b; margin-bottom:0.8rem;">⚡ Exclusive Access</div>
-    <img id="max-popup-img" style="width:100%; max-width:260px; height:180px; object-fit:cover; display:block; margin:0 auto 1rem; border:2px solid #c8a84b;" alt="Max Verstappen" />
-    <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:#f5f0e8; line-height:1.2; margin-bottom:0.5rem;">Click to Meet<br>Max Verstappen</div>
-    <div style="font-family:'Oswald',sans-serif; font-size:0.62rem; color:#888; letter-spacing:0.2em; text-transform:uppercase; margin-top:1rem;">Press D or click outside to dismiss</div>
+<!-- VERSTAPPEN POPUP -->
+<!--
+  IMAGE GUIDE FOR POPUP:
+  verstappen.jpg — Max Verstappen photo (search "Max Verstappen Red Bull press photo")
+-->
+<div id="hamilton-popup">
+  <div class="max-popup-shell">
+    <div class="max-popup-topbar">
+      <span class="max-popup-topbar-label">⚡ Classified File · Eyes Only · The Daily Forensic</span>
+      <button class="max-popup-close-btn" onclick="closePopup()">✕ Dismiss</button>
+    </div>
+    <div class="max-popup-image-area">
+      <img id="max-popup-img" src="verstappen.jpg" alt="Max Verstappen" />
+      <div class="max-popup-number">33</div>
+      <div class="max-popup-image-overlay">
+        <div class="max-popup-name">Max Verstappen</div>
+        <div class="max-popup-subtitle">Four-Time Champion · Red Bull Racing · #1</div>
+      </div>
+    </div>
+    <div class="max-popup-body">
+      <div class="max-popup-stats">
+        <div class="max-stat">
+          <span class="max-stat-num">4×</span>
+          <span class="max-stat-label">WDC Titles</span>
+        </div>
+        <div class="max-stat">
+          <span class="max-stat-num">62+</span>
+          <span class="max-stat-label">Race Wins</span>
+        </div>
+        <div class="max-stat">
+          <span class="max-stat-num">#1</span>
+          <span class="max-stat-label">Race Number</span>
+        </div>
+      </div>
+      <div class="max-popup-note">
+        <strong>Analyst Note:</strong> This is the man Aahil refuses to acknowledge has ever made a correct decision. The Daily Forensic documents this without editorial comment. The full intel package is available for view below.
+      </div>
+      <a href="max-verstappen-download.html" class="max-popup-download-btn" id="download-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1v9M8 10l-3-3M8 10l3-3M2 12v2h12v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        View Intel Package
+      </a>
+      <div class="max-popup-dismiss">
+        Press <kbd>D</kbd> or click overlay to dismiss
+      </div>
+    </div>
   </div>
 </div>
-<div id="hamilton-overlay" style="display:none; position:fixed; inset:0; z-index:9998; background:rgba(0,0,0,0.4);" onclick="closePopup()"></div>
+<div id="hamilton-overlay" onclick="closePopup()"></div>
 
 <script>
-  const popup = document.getElementById('hamilton-popup');
-  const overlay2 = document.getElementById('hamilton-overlay');
+  const popup   = document.getElementById('hamilton-popup');
+  const overlay = document.getElementById('hamilton-overlay');
 
-  function showPopup() { popup.style.display = 'block'; overlay2.style.display = 'block'; }
-  function closePopup() { popup.style.display = 'none'; overlay2.style.display = 'none'; }
+  function showPopup() {
+    popup.style.display   = 'block';
+    overlay.style.display = 'block';
+  }
+  function closePopup() {
+    popup.style.display   = 'none';
+    overlay.style.display = 'none';
+  }
 
+  // Show after 10s, then every 30s
   setTimeout(showPopup, 10000);
-  setInterval(showPopup, 10000);
+  setInterval(showPopup, 30000);
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'd' || e.key === 'D') closePopup();
   });
-
-  var maxImgData = "1";
-  document.getElementById("max-popup-img").src = maxImgData;
-
-  function openMax() {
-    var w = window.open('', '_blank');
-    if (!w) { window.location.href = maxImgData; return; }
-    w.document.open();
-    w.document.write('<!DOCTYPE html><html><head><title>Max Verstappen</title><style>body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh;}img{max-width:100%;max-height:100vh;}</style></head><body><img src="' + maxImgData + '" /></body></html>');
-    w.document.close();
-  }
 </script>
 </body>
 </html>
