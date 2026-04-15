@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Downloading Intel Package — The Daily Forensic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@400;500;700&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:   #c8a84b;
+    --dark:   #0d0d0d;
+    --mid:    #1a1a1a;
+    --panel:  #111;
+    --border: #2a2a2a;
+    --text:   #bbb;
+    --cream:  #f5f0e8;
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--mid);
+    border-bottom: 1px solid var(--border);
+    padding: 0.55rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .topbar-logo:hover { color: var(--gold); }
+  .topbar-right {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--gold);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.3rem 0;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: tick 22s linear infinite;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  @keyframes tick { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* gold corner accents */
+  .card::before, .card::after {
+    content: '';
+    position: absolute;
+    width: 24px; height: 24px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .card::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+  .card::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+  .card-header {
+    background: var(--mid);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-header-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .card-header-id {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  .card-body { padding: 2rem 1.8rem; }
+
+  /* status indicator */
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.8rem;
+  }
+  .status-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+  }
+  .status-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* subject line */
+  .subject-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .subject-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 1.6rem;
+  }
+
+  /* divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    margin-bottom: 1.6rem;
+  }
+
+  /* file info block */
+  .file-info {
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .file-icon {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .file-icon svg { display: block; }
+  .file-details { flex: 1; }
+  .file-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .file-meta {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.68rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* progress bar */
+  .progress-wrap {
+    margin-bottom: 1.6rem;
+  }
+  .progress-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 0.4rem;
+  }
+  .progress-label-row span:last-child { color: var(--gold); }
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    width: 0%;
+    transition: none;
+  }
+
+  /* main download button */
+  .dl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 0.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .dl-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.2s;
+  }
+  .dl-btn:hover { background: #e0be5a; }
+  .dl-btn:active { transform: scale(0.99); }
+  .dl-btn.complete { background: #4a7c4e; color: #d4f0d6; cursor: default; }
+  .dl-btn.complete:hover { background: #4a7c4e; }
+
+  /* back link */
+  .back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    width: 100%;
+  }
+  .back-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* note */
+  .disclaimer-note {
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.7rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    padding: 0.8rem 2rem;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #333;
+  }
+  footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="https://thedailyforensic.github.io/Home/" class="topbar-logo">The Daily Forensic</a>
+  <span class="topbar-right">Intel Package Distribution Unit · Clearance Level: Unrestricted</span>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    ⬛ INITIATING SECURE TRANSFER &nbsp;·&nbsp; PACKAGE: MAX VERSTAPPEN INTEL DOSSIER &nbsp;·&nbsp; FILE TYPE: ZIP ARCHIVE &nbsp;·&nbsp; CLASSIFICATION: DECLASSIFIED &nbsp;·&nbsp; AAHIL IS GOING TO HATE THIS &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-header-label">⬛ Secure File Distribution — The Daily Forensic</span>
+      <span class="card-header-id">Ref: TDF-INT-MV33-2026</span>
+    </div>
+    <div class="card-body">
+
+      <div class="status-row">
+        <div class="status-dot" id="status-dot"></div>
+        <span class="status-text" id="status-text">Preparing Transfer</span>
+      </div>
+
+      <div class="subject-line">Max Verstappen<br>Intel Package</div>
+      <div class="subject-sub">Four-Time Champion · Red Bull Racing · The Subject Refuses To Acknowledge</div>
+
+      <div class="divider"></div>
+
+      <div class="file-info">
+        <div class="file-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M5 2h8l5 5v13H5V2z" stroke="#0d0d0d" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M13 2v5h5" stroke="#0d0d0d" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M8 13l3 3 3-3M11 16V10" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="file-details">
+          <span class="file-name">max-verstappen-intel.zip</span>
+          <span class="file-meta">Compressed archive · Declassified · Auto-download on page load</span>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-label-row">
+          <span>Transfer Progress</span>
+          <span id="pct-label">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <a href="max-verstappen-intel.zip" download="max-verstappen-intel.zip" class="dl-btn" id="dl-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1v9M8 10l-3-3M8 10l3-3M2 12v2h12v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="btn-label">Download Intel Package</span>
+      </a>
+
+      <a href="aahil_updated.html" class="back-link">
+        ← Return To Aahil Dossier
+      </a>
+
+      <div class="disclaimer-note">
+        File will download automatically. If it does not begin within 5 seconds, use the button above.<br>
+        This download has been authorised by The Daily Forensic Intelligence Division.<br>
+        Aahil does not endorse this download. He was not asked.
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © The Daily Forensic, 2026 &nbsp;·&nbsp; <span>Intelligence Distribution Unit</span> &nbsp;·&nbsp; All Intel Distributed Without Subject's Consent &nbsp;·&nbsp; LH44 Remains Undefeated In Aahil's Heart
+</footer>
+
+<script>
+  // ── Animated progress bar on load ──
+  const fill     = document.getElementById('progress-fill');
+  const pctLabel = document.getElementById('pct-label');
+  const statusDot  = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+  const btn      = document.getElementById('dl-btn');
+  const btnLabel = document.getElementById('btn-label');
+
+  let pct = 0;
+  const steps = [
+    { to: 30, delay: 0,    dur: 600,  label: 'Authenticating...' },
+    { to: 65, delay: 650,  dur: 700,  label: 'Packaging Files...' },
+    { to: 90, delay: 1400, dur: 500,  label: 'Preparing Transfer...' },
+    { to: 100,delay: 1950, dur: 350,  label: 'Ready' },
+  ];
+
+  function animateTo(target, duration, onDone) {
+    const start = pct;
+    const startTime = performance.now();
+    function frame(now) {
+      const t = Math.min((now - startTime) / duration, 1);
+      pct = start + (target - start) * t;
+      fill.style.width = pct + '%';
+      pctLabel.textContent = Math.round(pct) + '%';
+      if (t < 1) requestAnimationFrame(frame);
+      else if (onDone) onDone();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // chain the steps
+  let i = 0;
+  function runStep() {
+    if (i >= steps.length) return;
+    const s = steps[i++];
+    statusText.textContent = s.label;
+    setTimeout(() => animateTo(s.to, s.dur, runStep), s.delay);
+  }
+  runStep();
+
+  // on complete, mark done + trigger download
+  setTimeout(() => {
+    statusDot.style.animation = 'none';
+    statusDot.style.background = '#4a7c4e';
+    statusText.textContent = 'Transfer Complete';
+    statusText.style.color = '#4a7c4e';
+    btn.classList.add('complete');
+    btnLabel.textContent = '✓  Download Ready';
+
+    // Auto-trigger download
+    const a = document.createElement('a');
+    a.href     = 'max-verstappen-intel.zip';
+    a.download = 'max-verstappen-intel.zip';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }, 2350);
+</script>
+</body>
+</html>
